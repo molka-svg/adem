@@ -1,0 +1,38 @@
+<input type="button" (click)="afficheForm()" class="btn btn-success" value="Ajouter Un Contact">
+
+<form #f="ngForm" *ngIf="isFormVisible" (ngSubmit)="addContact(f)">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Tapez Le nom</label>
+      <input type="text" class="form-control" id="nom" name="nom" ngModel #n="ngModel" required>
+      <div *ngIf="n.invalid && n.touched" class="alert alert-danger" role="alert">
+        Veuillez remplir ce champs!
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Tapez Le prenom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" ngModel #p="ngModel" required>
+        <div *ngIf="p.invalid && p.touched" class="alert alert-danger" role="alert">
+          Veuillez remplir ce champs!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Tapez L'email</label>
+        <input type="email" class="form-control" id="email" name="email" ngModel #email="ngModel" required>
+        <div *ngIf="email.invalid && email.touched" class="alert alert-danger" role="alert">
+          Veuillez remplir ce champs!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="cin" class="form-label">Tapez Le cin</label>
+        <input type="text" class="form-control" id="cin" name="cin" ngModel #cin="ngModel" required>
+        <div *ngIf="cin.invalid && cin.touched" class="alert alert-danger" role="alert">
+          Veuillez remplir ce champs!
+        </div>
+    </div>
+    <input type="submit" Value="Confirmer" class="btn btn-info" [disabled]="f.invalid">
+</form>
+
+<!-- Message de succès -->
+<div *ngIf="isSuccess" class="alert alert-success" role="alert">
+  Contact ajouté avec succès!
+</div>

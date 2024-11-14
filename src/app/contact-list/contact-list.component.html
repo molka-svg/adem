@@ -1,0 +1,22 @@
+<input type="button" (click)="afficheListe()" class="btn btn-success" value="Afficher la liste des contacts">
+
+<table class="table" *ngIf="afficherLaliste">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Editer</th>
+      <th scope="col">Afficher plus de détails</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of contacts; let i = index">
+      <th scope="row">{{ c.nom }}</th>
+      <td>{{ c.prenom }}</td>
+      <td>{{ c.email }}</td>
+      <td><input type="button" (click)="edit(i)" value="Editer"> </td>
+      <td><input type="button" (click)="select(i)" value="Afficher Plus De détails"> </td>
+    </tr>
+  </tbody>
+</table>

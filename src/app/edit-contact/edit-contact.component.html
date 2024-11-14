@@ -1,0 +1,24 @@
+<form (ngSubmit)="editerContact(f)" #f="ngForm" *ngIf="isFormVisible">
+    <h2>Editer Contact</h2>
+    <div>
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="safeContactsAediter.nom" name="nom" required />
+    </div>
+    <div>
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" [(ngModel)]="safeContactsAediter.prenom" name="prenom" required />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="safeContactsAediter.email" name="email" required />
+    </div>
+    <div>
+      <label for="cin">CIN:</label>
+      <input type="text" id="cin" [(ngModel)]="safeContactsAediter.cin" name="cin" required />
+    </div>
+    <input type="submit" value="Confirmer" class="btn btn-info" [disabled]="f.invalid">
+  </form>
+  <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+    Modification réussie avec succès!
+  </div>
+  
